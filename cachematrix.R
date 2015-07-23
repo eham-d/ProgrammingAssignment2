@@ -1,19 +1,9 @@
+
 ## Put comments here that give an overall description of what your
 ## functions do.
 
 
 
-# An invertible matrix (source:http://www.mathwords.com/i/inverse_of_a_matrix.htm )
-x<- matrix(c(4,3,3,2),2,2) # The matrix
-x_inverse<-matrix (c(-2,3,3,-4),2,2)
-identity_2x2<-matrix(c(1,0,0,1),2,2) # identity matrix
-
-x %*% x_inverse # "true" matrix multiplication shows that x_inverse is the inverse
-# of x, since the answer is identity
-
-solve(x,identity_2x2) # documentation: "solves the equation a %*% x = b for x,
-#where b can be either a vector or a matrix". In this case I am solving:
-#x %*% x_inverse = identity_2x2 for x_inverse
 
 
 ## Write a short comment describing this function.
@@ -36,7 +26,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## Write a short comment describing this function
-##cacheSolve: "This function computes the inverse of the special "matrix" returned 
+## cacheSolve: "This function computes the inverse of the special "matrix" returned 
 ## by makeCacheMatrix above. If the inverse has already been calculated (and the 
 ##matrix has not changed), then the cachesolve should retrieve the inverse from 
 #the cache."
@@ -53,5 +43,23 @@ cacheSolve <- function(x, ...) {
   x$setinverse(m)
   m
 }
+
+# using the functions -----------------------------------------------------
+
+
+
+# An invertible matrix (source:http://www.mathwords.com/i/inverse_of_a_matrix.htm )
+x<- matrix(c(4,3,3,2),2,2) # The matrix
+x_inverse<-matrix (c(-2,3,3,-4),2,2)
+identity_2x2<-matrix(c(1,0,0,1),2,2) # identity matrix
+
+x %*% x_inverse # "true" matrix multiplication shows that x_inverse is the inverse
+# of x, since the answer is identity
+
+solve(x,identity_2x2) # documentation: "solves the equation a %*% x = b for x,
+#where b can be either a vector or a matrix". In this case I am solving:
+#x %*% x_inverse = identity_2x2 for x_inverse
+
+
 
 cacheSolve(makeCacheMatrix(x)) #Works as intended
